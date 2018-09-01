@@ -1,0 +1,16 @@
+[
+    {
+      "modid": "mekatweaks",
+      "name": "MekaTweaks",
+      "description": "Simple mod to add things to Mekanism.",
+      "version": "${version}",
+      "mcversion": "${mcversion}",
+      "url": "",
+      "updateUrl": "",
+      "authorList": [ "artdude543" ],
+      "credits": "Darkosto",
+      "logoFile": "",
+      "screenshots": [],
+      "dependencies": []
+    }
+]

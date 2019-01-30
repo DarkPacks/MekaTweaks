@@ -45,26 +45,25 @@ public class MekaTweaks {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
-        Logger logger = event.getModLog();
 
         if (infuseTypes.exists()) {
             try (BufferedReader reader = Files.newReader(infuseTypes, StandardCharsets.UTF_8)) {
                 final CustomInfuseType[] infuseTypes = GSON.fromJson(reader, CustomInfuseType[].class);
                 for (CustomInfuseType customType : infuseTypes) {
                     if (customType.getName().length() == 0) {
-                        logger.warn("[Infuse Register] Name is empty or null for an entry!");
+                        LOG.warn("[Infuse Register] Name is empty or null for an entry!");
                         continue;
                     }
                     InfuseType infuseType = new InfuseType(customType.getName().toLowerCase(), customType.getResourceLocation());
                     // Workaround for Locale support. As "non" locale strings get parsed as normal strings.
                     infuseType.unlocalizedName = String.format("%s (MT)", StringUtils.capitalise(customType.getName()));
 
-                    logger.info(String.format("[Infuse Register] Registering custom Infuse Type %s to Mekanism.", customType.getName()));
+                    LOG.info(String.format("[Infuse Register] Registering custom Infuse Type %s to Mekanism.", customType.getName()));
                     InfuseRegistry.registerInfuseType(infuseType);
                 }
             } catch (final IOException err) {
-                logger.error("Could not read {}.", infuseTypes.getName());
-                logger.catching(err);
+                LOG.error("Could not read {}.", infuseTypes.getName());
+                LOG.catching(err);
             }
         }
     }

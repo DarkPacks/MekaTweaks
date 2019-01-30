@@ -34,12 +34,25 @@ minecraft {
 dependencies {
     // CraftTweaker
     deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.+"
+    deobfProvided "mezz.jei:jei_1.12.2:${version_jei}"
+    deobfProvided "net.darkhax.bookshelf:Bookshelf-1.12.2:${version_bookshelf}"
+    deobfProvided "net.darkhax.gamestages:GameStages-1.12.2:${version_gamestages}"
 }
 
 repositories {
     // CraftTweaker
     maven {
         url 'http://blamejared.com/maven'
+    }
+
+    // GameStages
+    maven {
+        url 'https://maven.mcmoddev.com'
+    }
+
+    // JEI
+    maven {
+        url = "http://dvs1.progwml6.com/files/maven"
     }
 }
 

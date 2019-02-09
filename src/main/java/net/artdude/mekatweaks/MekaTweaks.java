@@ -4,6 +4,7 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.io.Files;
 import com.google.gson.Gson;
+import crafttweaker.mc1120.commands.CTChatCommand;
 import mekanism.api.gas.GasStack;
 import mekanism.api.infuse.InfuseRegistry;
 import mekanism.api.infuse.InfuseType;
@@ -66,6 +67,8 @@ public class MekaTweaks {
                 LOG.catching(err);
             }
         }
+
+        CTChatCommand.registerCommand(new GasCommands());
     }
 
     @SideOnly(Side.CLIENT)
